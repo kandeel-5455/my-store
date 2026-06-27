@@ -15,5 +15,10 @@ export const metadata = {
 };
 
 export default function Home() {
-  return <PayPalStorefront />;
+  return (
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>مرحباً بكم في متجرنا</h1>
+      <p>قريباً سنكون جاهزين لاستقبال طلباتكم!</p>
+    </div>
+  );
 }

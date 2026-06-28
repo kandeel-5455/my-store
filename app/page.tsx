@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div style={{ textAlign: 'center' }}>
       <h1>رحباً بكم في متجرنا</h1>
-      <p>سنبدأ باستقبال الطلبات</p>
+      <p>سنبدأ باستقبال الطلبات الآن!</p>
     </div>
   );
 }

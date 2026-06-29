@@ -14,9 +14,9 @@ export const products: Product[] = [
     name: "Muscle-Up Fitness Tee (Black)",
     price: 29.99,
     category: "Fitness",
-    description: "High-performance fabric. Same price for any size or color.",
+    description: "High-performance fabric.",
     sizes: ["M", "L", "XL", "XXL"],
-    image: "/MuscleUp-TShirt-Black-01.jpeg",
+    image: "/edited-photos/MuscleUp-TShirt-Black-01.jpeg",
   },
   {
     id: 2,

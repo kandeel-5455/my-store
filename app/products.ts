@@ -11,20 +11,20 @@ export interface Product {
 export const products: Product[] = [
   {
     id: 1,
-    name: "Muscle-Up Fitness Tee",
-    price: 35.0,
+    name: "Muscle-Up Fitness Tee (Black)",
+    price: 29.99,
     category: "Fitness",
-    description: "Built for heavy lifting and durability.",
+    description: "High-performance fabric. Same price for any size or color.",
     sizes: ["M", "L", "XL", "XXL"],
-    image: "/black-tshirt.jpg",
+    image: "/MuscleUp-TShirt-Black-01.jpeg",
   },
   {
     id: 2,
-    name: "Muscle-Up Cardio Pro",
-    price: 35.0,
+    name: "Muscle-Up Cardio Pro (Blue)",
+    price: 29.99,
     category: "Cardio",
-    description: "Lightweight and breathable for high-intensity running.",
+    description: "Lightweight and breathable. Same price for any size or color.",
     sizes: ["M", "L", "XL", "XXL"],
-    image: "/blue-tshirt.jpg",
+    image: "/MuscleUp-TShirt-Blue-01.jpg",
   },
 ];

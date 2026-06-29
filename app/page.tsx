@@ -12,7 +12,9 @@ export default function Home() {
             <p><strong>Category:</strong> {product.category}</p>
             <p>{product.description}</p>
             <p><strong>Available Sizes:</strong> {product.sizes.join(', ')}</p>
-            <p><strong>Price:</strong> ${product.price}</p>
+            <p style={{ fontWeight: 'bold', color: '#333' }}>
+              Price: ${product.price} <span style={{ fontSize: '0.8em', color: '#666' }}>(Any size/color)</span>
+            </p>
             <button style={{ backgroundColor: '#000', color: '#fff', padding: '10px', borderRadius: '5px' }}>
               Add to Cart
             </button>

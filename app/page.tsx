@@ -49,15 +49,10 @@ export default function Home() {
       <h1 style={{ textAlign: 'center' }}>Muscle Up Store</h1>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px', marginTop: '40px' }}>
         {products.map((product) => (
-          <div key={product.id} style={{ border: '1px solid #ddd', padding: '20px', borderRadius: '12px' }}>
-            <img src={product.image} alt={product.name} style={{ width: '100%', borderRadius: '8px' }} />
+          <div key={product.id} style={{ border: '1px solid #ccc', padding: '20px', marginBottom: '10px' }}>
+            <img src={product.image} alt={product.name} style={{ width: '200px' }} />
             <h3>{product.name}</h3>
-            <p><strong>Category:</strong> {product.category}</p>
-            <p>{product.description}</p>
-            <p><strong>Available Sizes:</strong> {product.sizes.join(', ')}</p>
-            <p style={{ fontWeight: 'bold', color: '#333' }}>
-              Price: ${product.price} <span style={{ fontSize: '0.8em', color: '#666' }}>(Any size/color)</span>
-            </p>
+            <p>Price: ${product.price}</p>
             <PayPalButton price={product.price} />
           </div>
         ))}

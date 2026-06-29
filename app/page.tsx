@@ -1,4 +1,47 @@
+'use client';
+
+import { useEffect, useId } from 'react';
 import { products } from './products';
+
+const PayPalButton = ({ price }: { price: number }) => {
+  const containerId = useId().replace(/:/g, '');
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = `https://www.paypal.com/sdk/js?client-id=${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}&currency=USD`;
+    script.async = true;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      const paypal = (window as Window & {
+        paypal?: {
+          Buttons: (options: any) => {
+            render: (selector: string) => void;
+          };
+        };
+      }).paypal;
+
+      if (paypal) {
+        paypal
+          .Buttons({
+            createOrder: (_data: any, actions: any) => {
+              return actions.order.create({
+                purchase_units: [{ amount: { value: price.toString() } }],
+              });
+            },
+            onApprove: (_data: any, actions: any) => {
+              return actions.order.capture().then((details: any) => {
+                alert('تمت عملية الشراء بنجاح! شكراً لك ' + details.payer.name.given_name);
+              });
+            },
+          })
+          .render(`#${containerId}`);
+      }
+    };
+  }, [containerId, price]);
+
+  return <div id={containerId} style={{ marginTop: '10px' }} />;
+};
 
 export default function Home() {
   return (
@@ -15,9 +58,7 @@ export default function Home() {
             <p style={{ fontWeight: 'bold', color: '#333' }}>
               Price: ${product.price} <span style={{ fontSize: '0.8em', color: '#666' }}>(Any size/color)</span>
             </p>
-            <button style={{ backgroundColor: '#000', color: '#fff', padding: '10px', borderRadius: '5px' }}>
-              Add to Cart
-            </button>
+            <PayPalButton price={product.price} />
           </div>
         ))}
       </div>
